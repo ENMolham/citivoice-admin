@@ -3,6 +3,7 @@ import 'package:citivoice_admin/Core/constant/colors_constant.dart';
 import 'package:citivoice_admin/Core/error/validate.dart';
 import 'package:citivoice_admin/Core/extension/screen_size_extension.dart';
 import 'package:citivoice_admin/Features/Auth/login/cubit/login_password_visibility_cubit.dart';
+import 'package:citivoice_admin/Features/User/home/presentation/home.dart';
 import 'package:citivoice_admin/Features/Widgets/button.dart';
 import 'package:citivoice_admin/Features/Widgets/logo.dart';
 import 'package:citivoice_admin/Features/Widgets/text.dart';
@@ -72,29 +73,29 @@ class LoginPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     CustomLogo(
-                      widthLogo: context.screenWidth,
-                      heightLogo: context.screenHeight * 0.27,
+                      widthLogo: context.screenWidth * 0.26,
+                      heightLogo: context.screenHeight * 0.3,
                       paddingTop: context.screenHeight * 0.02,
                       paddingRight: 0,
                     ),
                     CustomText(
                       text: "تسجيل الدخول",
                       color: ColorConstant.White,
-                      size: ScreenSizeExtension(context).scaleFont(32),
+                      size: ScreenSizeExtension(context).scaleFont(6),
                       fontWeight: FontWeight.bold,
-                      paddingTop: context.screenHeight * 0.025,
+                      paddingTop: 0,
                       paddingright: 0,
                     ),
                     CustomText(
                       text: "مرحبا بعودتك",
                       color: ColorConstant.White,
-                      size: context.scaleFont(20),
+                      size: context.scaleFont(4),
                       fontWeight: FontWeight.bold,
                       paddingTop: context.screenHeight * 0.0041,
                       paddingright: 0,
                     ),
                     CustomTextFormField(
-                      widthFiled: context.screenWidth * 0.8636,
+                      widthFiled: context.screenWidth * 0.2,
                       heightFiled: context.screenHeight * 0.1,
                       radius: 10,
                       obscureText: false,
@@ -110,14 +111,14 @@ class LoginPage extends StatelessWidget {
                     BlocBuilder<LoginPasswordVisibilityCubit, bool>(
                       builder: (context, passwordVisible) {
                         return CustomTextFormField(
-                          widthFiled: context.screenWidth * 0.8636,
+                          widthFiled: context.screenWidth * 0.2,
                           heightFiled: context.screenHeight * 0.1,
                           radius: 10,
                           obscureText: passwordVisible,
                           keyboardType: TextInputType.visiblePassword,
                           readOnly: false,
                           hintText: "كلمة المرور",
-                          paddingTop: context.screenHeight * 0.0025,
+                          paddingTop: 0,
                           controller: passwordController,
                           validator: validateRequiredField,
                           color: ColorConstant.White,
@@ -133,37 +134,19 @@ class LoginPage extends StatelessWidget {
                                   ? Icons.visibility_off
                                   : Icons.visibility,
                               color: ColorConstant.MainColor,
-                              size: context.scaleIcon(28),
+                              size: context.scaleIcon(6),
                             ),
                           ),
                         );
                       },
                     ),
-                    InkWell(
-                      onTap: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => Forgetpassword(),
-                        //   ),
-                        // );
-                      },
-                      child: CustomText(
-                        text: "نسيت كلمة المرور",
-                        color: ColorConstant.Beige,
-                        size: context.scaleFont(16),
-                        fontWeight: FontWeight.bold,
-                        paddingTop: 0,
-                        paddingright: context.screenWidth * 0.5,
-                      ),
-                    ),
                     CustomButton(
-                      widthButton: context.screenWidth * 0.4545,
+                      widthButton: context.screenWidth * 0.12,
                       heightButton: context.screenHeight * 0.0606,
                       colorButton: ColorConstant.Beige,
                       colorText: ColorConstant.MainColor,
                       text: "تسجيل الدخول",
-                      sizeText: context.scaleFont(20),
+                      sizeText: context.scaleFont(4),
                       paddingTop: context.screenHeight * 0.0669,
                       onTap: () async {
                         // final deviceToken =
@@ -176,46 +159,13 @@ class LoginPage extends StatelessWidget {
                         //   );
                         // }
                         if (keylogin.currentState!.validate()) {
-                          // Navigator.of(context).pushReplacement(
-                          //   MaterialPageRoute(builder: (context) => Home()),
-                          // );
+                          Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(builder: (context) => Home()),
+                          );
                         }
                       },
                       radius: 50,
                       paddingRight: 0,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        CustomText(
-                          text: "ليس لديك حساب ؟",
-                          color: ColorConstant.White,
-                          size: context.scaleFont(16),
-                          fontWeight: FontWeight.bold,
-                          paddingTop: context.screenHeight * 0.12,
-                          paddingBottum: context.screenHeight * 0.01,
-                          paddingright: 0,
-                        ),
-                        InkWell(
-                          onTap: () {
-                            // Navigator.pushAndRemoveUntil(
-                            //   context,
-                            //   MaterialPageRoute(builder: (context) => SignUp()),
-                            //   (Route<dynamic> route) => false,
-                            // );
-                          },
-                          child: CustomText(
-                            text: "إنشاء حساب",
-                            color: ColorConstant.Beige,
-                            size: context.scaleFont(16),
-                            fontWeight: FontWeight.bold,
-                            paddingTop: context.screenHeight * 0.12,
-                            paddingright: context.screenWidth * 0.02,
-                            paddingBottum: context.screenHeight * 0.01,
-                          ),
-                        ),
-                      ],
                     ),
                   ],
                 ),

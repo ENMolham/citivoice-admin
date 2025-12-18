@@ -26,8 +26,8 @@ class CustomDialog extends StatelessWidget {
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: SizedBox(
-        width: context.screenWidth * 0.3,
-        height: context.screenHeight * 0.2,
+        width: context.screenWidth * 0.25,
+        height: context.screenHeight * 0.3,
         child: Padding(
           padding: EdgeInsets.only(top: context.screenHeight * 0.03),
           child: Column(
@@ -37,7 +37,7 @@ class CustomDialog extends StatelessWidget {
                 child: CustomText(
                   text: title,
                   color: ColorConstant.Red,
-                  size: context.scaleFont(24),
+                  size: context.scaleFont(8),
                   fontWeight: FontWeight.bold,
                   paddingTop: 0,
                   paddingright: 0,
@@ -46,13 +46,13 @@ class CustomDialog extends StatelessWidget {
               CustomText(
                 text: message,
                 color: ColorConstant.Black,
-                size: context.scaleFont(16),
+                size: context.scaleFont(6),
                 fontWeight: FontWeight.w400,
-                paddingTop: context.screenHeight * 0.01,
+                paddingTop: context.screenHeight * 0.03,
                 paddingright: 0,
               ),
               Padding(
-                padding: EdgeInsets.only(top: context.screenHeight * 0.03),
+                padding: EdgeInsets.only(top: context.screenHeight * 0.05),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -63,8 +63,8 @@ class CustomDialog extends StatelessWidget {
                       onPressed: onPressed1,
                       child: CustomText(
                         text: textbutton1,
-                        color: ColorConstant.Beige,
-                        size: context.scaleFont(18),
+                        color: ColorConstant.White,
+                        size: context.scaleFont(4),
                         fontWeight: FontWeight.normal,
                         paddingTop: 0,
                         paddingright: 0,
@@ -77,8 +77,8 @@ class CustomDialog extends StatelessWidget {
                       onPressed: onPressed2,
                       child: CustomText(
                         text: textbutton2,
-                        color: ColorConstant.Beige,
-                        size: context.scaleFont(18),
+                        color: ColorConstant.White,
+                        size: context.scaleFont(4),
                         fontWeight: FontWeight.normal,
                         paddingTop: 0,
                         paddingright: 0,

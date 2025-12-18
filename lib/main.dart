@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:citivoice_admin/Core/constant/colors_constant.dart';
 import 'package:citivoice_admin/Core/utils/shared_preference_utils.dart';
 import 'package:citivoice_admin/Features/Auth/login/cubit/login_cubit.dart';
+import 'package:citivoice_admin/Features/Auth/login/cubit/login_password_visibility_cubit.dart';
 import 'package:citivoice_admin/Features/Auth/login/presentation/login_page.dart';
 import 'package:citivoice_admin/injection.dart';
 import 'package:flutter/material.dart';
@@ -93,7 +94,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [BlocProvider(create: (context) => getIt<LoginCubit>())],
+      providers: [
+        BlocProvider(create: (context) => getIt<LoginCubit>()),
+        BlocProvider(
+          create: (context) => getIt<LoginPasswordVisibilityCubit>(),
+        ),
+      ],
       child: MaterialApp(
         // navigatorKey: navigatorKey,
         debugShowCheckedModeBanner: false,

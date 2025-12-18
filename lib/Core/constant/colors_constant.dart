@@ -7,7 +7,7 @@ class ColorConstant {
   static Color MediumPetroleum = const Color.fromARGB(255, 7, 56, 69);
   static Color DarkPetroleum = const Color.fromARGB(255, 6, 53, 60);
   static Color DarkGrey = const Color.fromARGB(255, 100, 132, 122);
-  static Color LightGrey = const Color.fromARGB(255, 169, 174, 158);
+  static Color LightGrey = const Color.fromARGB(255, 242, 242, 242);
   static Color White = const Color(0xFFFAFAFA);
   static Color Red = const Color(0xFFF44336);
   static Color Amber = const Color.fromARGB(255, 192, 192, 0);

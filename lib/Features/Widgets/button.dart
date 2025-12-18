@@ -11,6 +11,7 @@ class CustomButton extends StatelessWidget {
   final double paddingTop;
   final double paddingRight;
   final double paddingBottom;
+  final double paddingleft;
   final void Function() onTap;
   final double radius;
   final BoxBorder? border;
@@ -28,6 +29,7 @@ class CustomButton extends StatelessWidget {
     required this.paddingRight,
     this.border,
     this.paddingBottom = 0.0,
+    this.paddingleft = 0.0,
   });
 
   @override
@@ -37,6 +39,7 @@ class CustomButton extends StatelessWidget {
         top: paddingTop,
         right: paddingRight,
         bottom: paddingBottom,
+        left: paddingleft,
       ),
       child: InkWell(
         onTap: onTap,

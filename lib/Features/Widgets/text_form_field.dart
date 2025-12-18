@@ -25,6 +25,7 @@ class CustomTextFormField extends StatelessWidget {
   final Color? colorTextInput;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
+  final double? fontSize;
 
   const CustomTextFormField({
     super.key,
@@ -50,6 +51,7 @@ class CustomTextFormField extends StatelessWidget {
     this.suffixIcon,
     this.controller,
     this.validator,
+    this.fontSize,
   });
 
   @override
@@ -86,14 +88,14 @@ class CustomTextFormField extends StatelessWidget {
             hintText: hintText,
             hintStyle: TextStyle(
               color: ColorConstant.MainColor,
-              fontSize: context.scaleFont(18),
+              fontSize: fontSize == null ? context.scaleFont(4) : fontSize,
               fontWeight: FontWeight.w500,
             ),
             prefixIcon: prefixIcon,
             suffixIcon: suffixIcon,
             contentPadding: EdgeInsets.symmetric(
-              horizontal: context.screenWidth * 0.05,
-              vertical: context.screenHeight * 0.02,
+              horizontal: context.screenWidth * 0.005,
+              vertical: context.screenHeight * 0.04,
             ),
 
             enabledBorder: border == null
@@ -134,7 +136,7 @@ class CustomTextFormField extends StatelessWidget {
               borderSide: BorderSide(color: ColorConstant.Red),
             ),
 
-            errorStyle: TextStyle(fontSize: context.scaleFont(14), height: 0),
+            errorStyle: TextStyle(fontSize: context.scaleFont(4), height: 0),
             helperStyle: const TextStyle(height: 0),
             helperText: '',
             errorMaxLines: 1,
